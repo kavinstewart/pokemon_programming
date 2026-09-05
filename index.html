@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Pokémon Programming</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #111; color: #fff; font-family: system-ui, sans-serif; touch-action: none; }
+      main { height: 100%; display: grid; place-items: center; padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)); }
+      canvas { width: min(100%, 960px); max-height: 100%; aspect-ratio: 16 / 9; background: #1b2a20; border: 1px solid #394b3e; }
+      #controls { position: fixed; inset: auto 1rem max(1rem, env(safe-area-inset-bottom)); display: flex; justify-content: space-between; pointer-events: none; }
+      button { width: 4rem; height: 4rem; border: 0; border-radius: 50%; background: #ffffff26; color: #fff; font: inherit; font-weight: 700; pointer-events: auto; }
+    </style>
+  </head>
+  <body>
+    <main><canvas id="game" width="960" height="540" aria-label="Game canvas"></canvas></main>
+    <nav id="controls" aria-label="Touch controls">
+      <button id="move" aria-label="Move">＋</button>
+      <button id="action" aria-label="Action">A</button>
+    </nav>
+    <script>
+      const canvas = document.querySelector("#game");
+      const context = canvas.getContext("2d");
+
+      function render() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = "#fff";
+        context.textAlign = "center";
+        context.font = "32px system-ui";
+        context.fillText("Pokémon Programming", canvas.width / 2, canvas.height / 2);
+        context.font = "18px system-ui";
+        context.fillText("Game scaffold ready", canvas.width / 2, canvas.height / 2 + 38);
+        requestAnimationFrame(render);
+      }
+
+      document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("pointerdown", (event) => event.preventDefault());
+      });
+
+      render();
+    </script>
+  </body>
+</html>
