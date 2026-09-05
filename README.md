@@ -21,6 +21,5 @@ Then visit <http://localhost:8000>.
 - Use Canvas 2D or Phaser; prefer Canvas 2D unless Phaser earns its weight.
 - Unlock audio from the first user interaction before playing sound.
 - Keep rendering and assets lightweight for reliable performance on mid-range iPads.
-- Avoid copyrighted game assets; use original or appropriately licensed art and audio.
 
 The current `index.html` only provides a responsive canvas, safe-area handling, a render loop, and placeholder touch controls. Replace it with the game implementation.
